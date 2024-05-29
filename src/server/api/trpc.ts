@@ -6,12 +6,10 @@
  * TL;DR - This is where all the tRPC server stuff is created and plugged in. The pieces you will
  * need to use are documented accordingly near the end.
  */
-import { TRPCError, initTRPC } from "@trpc/server";
+import {initTRPC, TRPCError} from "@trpc/server";
 import superjson from "superjson";
-import { ZodError } from "zod";
-
-import { db } from "~/server/db";
-import { getUserAsAdmin } from "../supabase/supabaseClient";
+import {ZodError} from "zod";
+import {getUserAsAdmin} from "../supabase/supabaseClient";
 
 /**
  * This is the actual context you will use in your router. It will be used to process every request
@@ -21,16 +19,15 @@ import { getUserAsAdmin } from "../supabase/supabaseClient";
  */
 
 export const createTRPCContext = async (opts: { headers: Headers }) => {
-  const headers = opts.headers;
-  const authToken = headers.get("authorization");
+    const headers = opts.headers;
+    const authToken = headers.get("authorization");
 
-  const { user } = authToken ? await getUserAsAdmin(authToken) : { user: null };
+    const {user} = authToken ? await getUserAsAdmin(authToken) : {user: null};
 
-  return {
-    ...opts,
-    db,
-    user,
-  };
+    return {
+        ...opts,
+        user,
+    };
 };
 /**
  * 2. INITIALIZATION
@@ -41,17 +38,17 @@ export const createTRPCContext = async (opts: { headers: Headers }) => {
  */
 
 const t = initTRPC.context<typeof createTRPCContext>().create({
-  transformer: superjson,
-  errorFormatter({ shape, error }) {
-    return {
-      ...shape,
-      data: {
-        ...shape.data,
-        zodError:
-          error.cause instanceof ZodError ? error.cause.flatten() : null,
-      },
-    };
-  },
+    transformer: superjson,
+    errorFormatter({shape, error}) {
+        return {
+            ...shape,
+            data: {
+                ...shape.data,
+                zodError:
+                    error.cause instanceof ZodError ? error.cause.flatten() : null,
+            },
+        };
+    },
 });
 
 /**
@@ -77,18 +74,19 @@ export const createTRPCRouter = t.router;
  */
 export const publicProcedure = t.procedure;
 
-const enforceUserIsAuthed = t.middleware(async ({ ctx, next }) => {
-  if (!ctx.user) {
-    throw new TRPCError({
-      code: "UNAUTHORIZED",
-    });
-  }
+const enforceUserIsAuthed = t.middleware(async ({ctx, next}) => {
 
-  return next({
-    ctx: {
-      user: ctx.user,
-    },
-  });
+    if (!ctx.user) {
+        throw new TRPCError({
+            code: "UNAUTHORIZED",
+        });
+    }
+
+    return next({
+        ctx: {
+            user: ctx.user,
+        },
+    });
 });
 
 export const privateProcedure = t.procedure.use(enforceUserIsAuthed);

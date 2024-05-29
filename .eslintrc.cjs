@@ -6,6 +6,9 @@ const config = {
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
   ],
+  ignorePatterns: [
+    "src/components/ui",
+  ],
   plugins: ["react", "@typescript-eslint", "unused-imports"],
   overrides: [
     {

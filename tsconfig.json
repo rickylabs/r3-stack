@@ -18,6 +18,7 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./*"],
       "~/*": ["./src/*"]
     },
     "plugins": [
@@ -35,5 +36,5 @@
     "**/*.mjs",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/components/ui"]
 }

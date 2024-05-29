@@ -1,8 +1,7 @@
-import { type PropsWithChildren } from "react";
-import { PublicRoute } from "~/components/PublicRoute/PublicRoute";
+import {type PropsWithChildren} from "react";
 
-const Layout = async ({ children }: PropsWithChildren) => {
-  return <PublicRoute>{children}</PublicRoute>;
+const Layout = async ({children}: PropsWithChildren) => {
+    return <>{children}</>;
 };
 
 export default Layout;

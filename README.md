@@ -14,12 +14,6 @@ This is a starter project/boilerplate to start out with:
 
 It allows us to call database in server components through supabase-js, for client component we are using trpc+prisma due to the superior DX
 
-## Projects using this starter
-
-- PortfolioQuiz [Website](https://www.portfolio-quiz.com/)
-- FreeLogo.dev [Website](https://www.freelogo.dev/)
-- FeastQR [Repo](https://github.com/jakubczarnowski/FeastQR) [Website](https://www.feastqr.com)
-- Instagram Clone [Repo](https://github.com/jakubczarnowski/instagram-clone) [Website](https://instagram-clone-eight-mu.vercel.app/)
 
 ## What's next? How do I make an app with this?
 
@@ -95,17 +89,10 @@ If you are not familiar with the different technologies used in this project, pl
 
 ## Authors
 
-👤 **Milosz Jankiewicz**
+👤 **Rickylabs**
 
-- Twitter: [@twitter.com/jaaneek/](https://twitter.com/jaaneek)
-- Github: [@Jaaneek](https://github.com/Jaaneek)
-- LinkedIn: [@https://www.linkedin.com/in/jaaneek](https://www.linkedin.com/in/mi%C5%82osz-jankiewicz-554562168/)
-
-👤 **Jakub Czarnowski**
-
-- Twitter: [@twitter.com/charnowsky/](https://twitter.com/charnowsky)
-- Github: [@jakubczarnowski](https://github.com/jakubczarnowski)
-- LinkedIn: [@https://www.linkedin.com/in/czarnowskijakub/](https://www.linkedin.com/in/czarnowskijakub/)
+- Github: [@Rickylabs](https://github.com/rickylabs)
+- LinkedIn: [@https://ch.linkedin.com/in/eric-chautems](https://ch.linkedin.com/in/eric-chautems)
 
 ## Learn More
 
