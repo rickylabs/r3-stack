@@ -76,6 +76,7 @@ export const AuthProvider = ({
         setUserSession(null);
         setUser(null);
         setCookies(null);
+        await fetch(`api/revalidate?path="/"&all=true`);
         localStorage.clear();
     }
 
