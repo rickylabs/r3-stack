@@ -7,10 +7,18 @@ import {supabase} from "~/server/supabase/supabaseClient";
 import {DevLoginButtons} from "../_components/DevLoginButtons";
 
 const Page = () => {
-    const signInWithOauth = (provider: Provider) => {
-        void supabase().auth.signInWithOAuth({
-            provider: provider,
-        });
+    const signInWithOauth = async (provider: Provider) => {
+        const response = await fetch(`/api/revalidate?path=/`, { cache: 'no-store' })
+        const {revalidated} = await response.json()
+
+        if(revalidated) {
+            void supabase().auth.signInWithOAuth({
+                provider: provider,
+            });
+        } else {
+            console.error("failed to revalidate path")
+        }
+
     };
 
     return (
@@ -25,8 +33,8 @@ const Page = () => {
                         <Button
                             variant="outline"
                             className="flex flex-row gap-2"
-                            onClick={() => {
-                                signInWithOauth("google");
+                            onClick={async () => {
+                                await signInWithOauth("google");
                             }}
                         >
                             <Icons.google width={16}/>

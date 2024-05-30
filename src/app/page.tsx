@@ -4,8 +4,10 @@ import {ServerDataStreaming} from "./_components/ServerDataStreaming";
 import {ClientFetchTest} from "~/app/_components/ClientFetchTest";
 import {Button} from "~/components/ui/button";
 import {Card} from "~/components/ui/card";
+import {AuthButton} from "~/app/_components/AuthButton";
 
 const Homepage = async () => {
+
     return (
         <main className="flex min-h-screen flex-col items-center justify-center bg-background text-foreground">
             <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
@@ -49,11 +51,7 @@ const Homepage = async () => {
                     </Link>
                 </div>
                 <div className="flex w-full flex-1 flex-col items-center gap-4">
-                    <Link href="/login" className="text-lg">
-                        <Button>
-                            Login
-                        </Button>
-                    </Link>
+                    <AuthButton/>
                     <Link href="/authenticated" className="text-lg">
                         <Button variant="outline">
                             Authenticated Route Example

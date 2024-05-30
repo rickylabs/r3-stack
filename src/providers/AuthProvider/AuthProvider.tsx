@@ -31,10 +31,10 @@ const setCookies = (session: Session | null) => {
 };
 
 export const AuthProvider = ({
-                                 user: initialUser,
-                                 session: initialSession,
-                                 children,
-                             }: {
+    user: initialUser,
+    session: initialSession,
+    children,
+}: {
     user: User | null;
     session: Session | null;
     children: ReactNode;
