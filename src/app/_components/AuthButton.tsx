@@ -5,7 +5,7 @@ import Link from "next/link";
 import {useUser} from "~/providers/AuthProvider/AuthProvider";
 
 export const AuthButton = () => {
-    const {session, isLoading} = useUser();
+    const {session, isLoading, logout} = useUser();
 
     if(isLoading) {
         return (
@@ -14,12 +14,12 @@ export const AuthButton = () => {
             </Link>
         );
     }
-    
+
     return (
         <>
             {session ?
                 <Link href="/logout" className="text-lg">
-                    <Button variant="outline">Logout</Button>
+                    <Button variant="outline" onClick={() => logout()}>Logout</Button>
                 </Link>
                 :
                 <Link href="/login" className="text-lg">

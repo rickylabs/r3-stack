@@ -5,15 +5,18 @@ import React, {createContext, type ReactNode, useContext, useEffect, useState,} 
 import {type Session, type User} from "@supabase/supabase-js";
 import {supabase} from "~/server/supabase/supabaseClient";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
+import {env} from "~/env.mjs";
 
 export const AuthContext = createContext<{
     user: User | null;
     session: Session | null;
     isLoading: boolean;
+    logout: () => void;
 }>({
     user: null,
     session: null,
     isLoading: false,
+    logout: () => {},
 });
 
 const setCookies = (session: Session | null) => {
@@ -69,10 +72,18 @@ export const AuthProvider = ({
         };
     }, []);
 
+    const logout = async () => {
+        setUserSession(null);
+        setUser(null);
+        setCookies(null);
+        localStorage.clear();
+    }
+
     const value = {
         session: userSession,
         user,
         isLoading,
+        logout
     };
 
     return (
