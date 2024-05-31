@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@mui/material";
 import {supabase} from "~/server/supabase/supabaseClient";
 
 const testAccounts = [
@@ -12,20 +13,20 @@ export const DevLoginButtons = () => {
         <div className="flex flex-col gap-2">
             {testAccounts.map((account, index) => (
                 <div key={index} className="flex flex-col items-start ">
-                    <button
+                    <Button
                         onClick={() => {
                             void supabase().auth.signInWithPassword(account);
                         }}
                     >
                         Login {account.email}
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         onClick={() => {
                             void supabase().auth.signUp(account);
                         }}
                     >
                         Register {account.email}
-                    </button>
+                    </Button>
                 </div>
             ))}
         </div>

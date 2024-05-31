@@ -4,7 +4,7 @@
 
 @layer base {
     :root {
-        --background: 166 100% 97%;
+        --background: var(--mui-palette-background-paper);
         --foreground: 166 5% 10%;
         --card: 166 50% 97%;
         --card-foreground: 166 5% 15%;
@@ -27,7 +27,7 @@
     }
 
     .dark {
-        --background: 166 50% 5%;
+        --background: var(--mui-palette-background-paper);
         --foreground: 166 5% 90%;
         --card: 166 50% 3%;
         --card-foreground: 166 5% 90%;
@@ -55,7 +55,10 @@
         @apply border-border;
     }
 
-    body {
+    html, body {
         @apply bg-background text-foreground;
+        a {
+            text-decoration: none;
+        }
     }
 }

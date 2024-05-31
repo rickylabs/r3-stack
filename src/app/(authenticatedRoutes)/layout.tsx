@@ -2,6 +2,8 @@ import {type PropsWithChildren} from "react";
 
 export default function Layout({children}: PropsWithChildren) {
     return (
-        <>{children}</>
+        <main className="flex min-h-screen flex-col items-center justify-center">
+            {children}
+        </main>
     );
 }

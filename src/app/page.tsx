@@ -2,14 +2,14 @@ import Link from "next/link";
 import {Suspense} from "react";
 import {ServerDataStreaming} from "./_components/ServerDataStreaming";
 import {ClientFetchTest} from "~/app/_components/ClientFetchTest";
-import {Button} from "~/components/ui/button";
-import {Card} from "~/components/ui/card";
 import {AuthButton} from "~/app/_components/AuthButton";
+import {Card, Typography} from "@mui/material";
+import Button from "@mui/material/Button";
 
 const Homepage = async () => {
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center bg-background text-foreground">
+        <main className="flex min-h-screen flex-col items-center justify-center">
             <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
                 <div className="flex flex-col items-center gap-6">
                     <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
@@ -21,6 +21,7 @@ const Homepage = async () => {
                     <p className="text-xl font-extrabold tracking-tight sm:text-[3rem]">
                         Create <span className="text-[hsla(167,8%,56%,.1)]">T3</span> App
                     </p>
+                    <Typography variant="h4" color="textSecondary">powered by Mui</Typography>
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
                     <Link
@@ -53,7 +54,7 @@ const Homepage = async () => {
                 <div className="flex w-full flex-1 flex-col items-center gap-4">
                     <AuthButton/>
                     <Link href="/authenticated" className="text-lg">
-                        <Button variant="outline">
+                        <Button variant="outlined">
                             Authenticated Route Example
                         </Button>
                     </Link>

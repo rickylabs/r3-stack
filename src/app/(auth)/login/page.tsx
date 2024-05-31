@@ -2,9 +2,9 @@
 
 import {type Provider} from "@supabase/supabase-js";
 import {Icons} from "~/components/Icons";
-import {Button} from "~/components/ui/button";
 import {supabase} from "~/server/supabase/supabaseClient";
 import {DevLoginButtons} from "../_components/DevLoginButtons";
+import Button from "@mui/material/Button";
 
 const Page = () => {
     const signInWithOauth = async (provider: Provider) => {
@@ -31,7 +31,7 @@ const Page = () => {
 
                     <div className="flex max-w-xs flex-col gap-4 rounded-xl  p-4  ">
                         <Button
-                            variant="outline"
+                            variant="outlined"
                             className="flex flex-row gap-2"
                             onClick={async () => {
                                 await signInWithOauth("google");
@@ -41,13 +41,13 @@ const Page = () => {
                             Google
                         </Button>
                         <Button
-                            variant="outline"
+                            variant="outlined"
                             className="flex flex-row gap-2"
                             onClick={() => {
                                 signInWithOauth("github");
                             }}
                         >
-                            <Icons.gitHub width={16}/>
+                            <Icons.gitHub width={16} className="text-black"/>
                             Github
                         </Button>
                     </div>

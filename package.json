@@ -21,7 +21,13 @@
     "db:diff": "npx supabase db diff -f"
   },
   "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
     "@hookform/resolvers": "^3.4.2",
+    "@mui/material": "next",
+    "@mui/material-nextjs": "next",
+    "@mui/icons-material": "next",
     "@prisma/client": "^5.14.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",

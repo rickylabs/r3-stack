@@ -3,6 +3,7 @@ import { type Config } from "tailwindcss";
 export default {
   darkMode: ["class"],
   content: ["src/**/*.{ts,tsx}"],
+  important: '#__next',
   theme: {
     container: {
       center: true,
@@ -69,4 +70,7 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
+  corePlugins: {
+    preflight: false,
+  }
 } satisfies Config;

@@ -5,7 +5,7 @@ import React, {createContext, type ReactNode, useContext, useEffect, useState,} 
 import {type Session, type User} from "@supabase/supabase-js";
 import {supabase} from "~/server/supabase/supabaseClient";
 import {ReactQueryDevtools} from "@tanstack/react-query-devtools";
-import {env} from "~/env.mjs";
+import {useToast} from "~/providers/ToastProvider/ToastProvider";
 
 export const AuthContext = createContext<{
     user: User | null;
@@ -42,6 +42,7 @@ export const AuthProvider = ({
     session: Session | null;
     children: ReactNode;
 }) => {
+    const {toast} = useToast();
     const [userSession, setUserSession] = useState<Session | null>(
         initialSession,
     );
@@ -78,6 +79,12 @@ export const AuthProvider = ({
         setCookies(null);
         await fetch(`api/revalidate?path="/"&all=true`);
         localStorage.clear();
+        toast({
+            open: true,
+            title: "Logged out",
+            children: <>You have been logged out</>,
+            alertProps: {severity: "info"},
+        })
     }
 
     const value = {

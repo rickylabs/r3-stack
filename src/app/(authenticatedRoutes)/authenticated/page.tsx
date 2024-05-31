@@ -4,7 +4,7 @@ import {UserInfo} from "./_components/UserInfo";
 const AuthenticatedExample = async () => {
 
     return (
-        <main className="flex min-h-screen flex-col items-center justify-center">
+        <>
             <div className="container flex flex-col items-center justify-center gap-12">
                 <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
                     Authenticated Route Example
@@ -21,8 +21,8 @@ const AuthenticatedExample = async () => {
                     </Suspense>
                 </div>
                 </div>
-        </main>
-);
+        </>
+    );
 };
 
 export default AuthenticatedExample;

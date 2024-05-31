@@ -1,6 +1,6 @@
-"use client"
+    "use client"
 
-import {Button} from "~/components/ui/button";
+import Button from "@mui/material/Button";
 import Link from "next/link";
 import {useUser} from "~/providers/AuthProvider/AuthProvider";
 
@@ -10,7 +10,7 @@ export const AuthButton = () => {
     if(isLoading) {
         return (
             <Link href="#" className="text-lg">
-                <Button disabled variant="outline">Loading</Button>
+                <Button disabled color="primary" variant="outlined">Loading</Button>
             </Link>
         );
     }
@@ -19,11 +19,11 @@ export const AuthButton = () => {
         <>
             {session ?
                 <Link href="/logout" className="text-lg">
-                    <Button variant="outline" onClick={() => logout()}>Logout</Button>
+                    <Button color="primary" variant="outlined" onClick={() => logout()}>Logout</Button>
                 </Link>
                 :
                 <Link href="/login" className="text-lg">
-                    <Button>Login</Button>
+                    <Button color="primary" variant="contained">Login</Button>
                 </Link>
             }
         </>
