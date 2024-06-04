@@ -29,7 +29,8 @@ export const getUserAsAdmin = async (token: string) => {
 
     if (error) {
         console.error(error);
-        throw error;
+
+        return {user: null};
     }
 
     return data;

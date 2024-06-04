@@ -28,7 +28,6 @@ export const ToastProvider = ({children}: {children: ReactNode}) => {
         }
     },[toastProps.open])
 
-    console.log(toastProps)
     const value = {
         toast: trigger,
     }

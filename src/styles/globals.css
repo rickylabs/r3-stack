@@ -4,7 +4,7 @@
 
 @layer base {
     :root {
-        --background: var(--mui-palette-background-paper);
+        --background: var(--mui-palette-background-default);
         --foreground: 166 5% 10%;
         --card: 166 50% 97%;
         --card-foreground: 166 5% 15%;
@@ -26,8 +26,8 @@
         --radius: 0.5rem;
     }
 
-    .dark {
-        --background: var(--mui-palette-background-paper);
+    [theme='dark'] {
+        --background: var(--mui-palette-background-default);
         --foreground: 166 5% 90%;
         --card: 166 50% 3%;
         --card-foreground: 166 5% 90%;
@@ -55,10 +55,15 @@
         @apply border-border;
     }
 
-    html, body {
+    html {
+        scroll-behavior: smooth
+    }
+
+    body, #__next {
         @apply bg-background text-foreground;
         a {
             text-decoration: none;
         }
     }
+
 }
