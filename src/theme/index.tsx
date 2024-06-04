@@ -10,7 +10,6 @@ import { componentsOverrides } from './overrides';
 import { createPresets } from './options/presets';
 import {type PresetsConfig} from "tailwindcss/types/config";
 import "~/styles/globals.css";
-import "~/styles/waves.css";
 import ThemeSwitcher from "~/theme/themeSwitcher";
 import {useTheme} from "next-themes";
 import {getInitColorSchemeScript} from "@mui/material";
